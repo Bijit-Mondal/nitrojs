@@ -20,7 +20,7 @@ jobs:
       - name: Debug Build Output
         run: ls -la ./.output/public  # Check if the folder exists
       - name: Upload artifact
-        uses: actions/upload-artifact@v4  # Correct action for GitHub Pages
+        uses: actions/upload-artifact@v4
         with:
           path: ./.output/public  # Ensure this is correct
 
@@ -34,7 +34,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact  # Ensure this matches the name used in the build job
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          folder: ./.output/public  # Ensure this matches the artifact content
 
