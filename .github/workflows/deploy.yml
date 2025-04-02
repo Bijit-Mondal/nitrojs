@@ -20,7 +20,7 @@ jobs:
       - name: Debug Build Output
         run: ls -la ./.output/public  # Check if the folder exists
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # Correct action for GitHub Pages
+        uses: actions/upload-artifact@v4  # Correct action for GitHub Pages
         with:
           path: ./.output/public  # Ensure this is correct
 
