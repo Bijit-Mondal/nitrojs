@@ -1,12 +1,18 @@
 {
   "private": true,
   "scripts": {
-    "build": "nitro build",
+    "build": "nitro build --preset netlify",
     "dev": "nitro dev",
     "prepare": "nitro prepare",
-    "preview": "node .output/server/index.mjs"
+    "preview": "node .output/server/index.mjs",
+    "build:netlify": "nitro build --preset netlify"
   },
   "devDependencies": {
     "nitropack": "latest"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.2.0",
+    "firebase-functions": "^6.3.2",
+    "firebase-functions-test": "^3.4.1"
   }
 }
